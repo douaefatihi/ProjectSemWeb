@@ -33,7 +33,7 @@ def compareWithMeteo(day):
         t = float(elm["temperature"])
         h = int(elm["hour"])
         
-        print(int(day[11:13]))
+        #print(int(day[11:13]))
 
         if h==int(day[11:13]):
             if(h<10):

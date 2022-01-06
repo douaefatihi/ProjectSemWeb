@@ -2,42 +2,37 @@
 
 {% block content %}
 
-<h2>All the extreme temperatures and their datetime:</h2>
+<h2>Rooms classification</h2>
+<pre></pre>
 <ul class="list-group list-group-flush" id="notes">
 
 
 
 
 
+  <table>
+    <tr>
+      <th>Room</th>
+      <th>Temperature difference</th>
+      <th>Status</th>
+    </tr>
+    {% for d in rows %}
+    <a href=exthour{{ d.day }}>{{ d.day }}</a>
 
+    <tr>
+      <th>{{ d.room }}</th>
+      <th>{{ d.diff }}</th>
+     <th>
 
-
-
-  <li class="list-group-item">
-
-    Room--Difference--Status
-  </li>
-
-
-
-  {% for d in rows %}
-
-
-
-    <li class="list-group-item">
-      <a href=exthour{{ d.day }}>{{ d.day }}</a>
-      {{ d.room }} ---
-      {{ d.diff }} ---
-      {% if d.diff<15 %}
-        NORMAL
-      {% elif d.diff>=15 and d.diff<18 %}
-        OF INTEREST
-      {% else %}
-        ALARMING
-      {% endif %}
-
-    </li>
+        {% if d.diff<15 %}
+    NORMAL
+  {% elif d.diff>=15 and d.diff<18 %}
+    OF INTEREST
+  {% else %}
+    ALARMING
+  {% endif %}
+  </th>
+    </tr>
   {% endfor %}
-</ul>
 
 {% endblock %}
