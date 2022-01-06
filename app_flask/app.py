@@ -12,8 +12,8 @@ def compareWithMeteo(day):
     
     csvdata=None
 
-    data15 = pd.read_csv("../Program/data/15_2021.csv")
-    data16 = pd.read_csv("../Program/data/16_2021.csv")
+    data15 = pd.read_csv("../RDFGen/data/15_2021.csv")
+    data16 = pd.read_csv("../RDFGen/data/16_2021.csv")
     
     
     if int(day[8:10])==15:
@@ -35,11 +35,10 @@ def compareWithMeteo(day):
         
         print(int(day[11:13]))
 
-
         if h==int(day[11:13]):
             if(h<10):
                 h="0"+str(h)
-                print('HHHHH')
+                print('')
                 print(str(h))
                 
 
