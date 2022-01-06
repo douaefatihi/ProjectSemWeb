@@ -8,3 +8,9 @@ Pre-requirements
 - Upload the .ttl files into fuseki database
 
 Run the Flask up with these steps
+- Create an Virtual enviroment, access to it and install all the dependencies :
+  - py -m venv venv
+  - venv/scripts/activate
+  - set FLASK_APP=app.py
+  - pip install flask .....
+  - flask run
