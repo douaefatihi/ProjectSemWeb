@@ -12,20 +12,14 @@
   </head>
   <body style="background-color: rgb(235, 239, 241);
   margin: 40px auto ;" > 
-    <nav class="navbar navbar-expand-md navbar-light bg-light" style="text-align: center;">
+
+  
+    <nav class="navbar navbar-expand-md navbar-light bg-light" style="justify-content: center;">
         <a class="navbar-brand" href="{{ url_for('index')}}" style="font-family: serif; font-weight: bold;
         font-size: 20px;">Home</a>
-        <label style="text-align: center;
-        font-family: serif;
-        font-size: 30px;
-        color: rgb(28, 29, 32);
-        padding: 16px; ">Description of the building at Espace Fauriel</label>
+        <a class="navbar-brand" href="https://www.emse.fr/~zimmermann/Teaching/SemWeb/Project/" style="font-family: serif; font-weight: bold;
+        font-size: 20px;">About</a>
     </nav>
-
-
-
-
-
 
     <div class="container">
         {% block content %} {% endblock %}
