@@ -3,13 +3,41 @@
 {% block content %}
     <h1>{% block title %} Welcome  {% endblock %}</h1>
 
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Create three equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 33.33%;
+          padding: 10px;
+          height: 100px; /* Should be removed. Only for demonstration */
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        </style>
 
-
-
-    <a href="extreme">See Extreme temperatures</a>
+    <div class="row">
+            <div class="column" style="background-color:rgb(207, 204, 204);">
+             <a style="font-family: serif; 
+             font-size: 20px;" href="extreme">See temperature measurements classification </a>  
+            </div>
+            <div class="column" style="background-color:rgb(185, 181, 181);">
+              <a href="roomes" style="font-family: serif; 
+              font-size: 20px;">View all 4th floor rooms measurements</a>
+            </div>
+      </div>
+    
     <br/>
 
-    <a href="roomes">View all 4th floor Rooms Mesurements</a>
+    
 
 
 
