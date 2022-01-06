@@ -102,7 +102,7 @@ class Main():
         rdfG=copy.deepcopy(self.rdfGraph)
         for i, row in self.orderedAndFiltered.iterrows():
             #to generate the RDF it takes somehow significant time we found that if we split things it takes les time than generate it in the one that s why we split it to 10 files
-            if (j%10000==0) or (j == (len(self.orderedAndFiltered)-1)  ) :
+            if (j%100000==0) or (j == (len(self.orderedAndFiltered)-1)  ) :
                 self.rdfGraph.serialize(destination="RoomsTTLS/generated"+str(j)+".ttl")
                 self.rdfGraph=copy.deepcopy(rdfG)
                 print(j)

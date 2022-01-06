@@ -1,0 +1,42 @@
+<li class="list-group-item">
+    Room
+    --------------Time---------------
+    Temperature
+  </li>
+
+  {% for d in rows %}
+    <li class="list-group-item">
+      {{ d.room }} ---------
+      {{ d.time }} ---------
+      {{ d.temperature }}
+    </li>
+  {% endfor %}
+</ul>
+
+
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sensor: <http://localhost:3030/sensor/>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX room: <https://territoire.emse.fr/kg/emse/fayol/4ET/>
+PREFIX core: <https://w3id.org/rec/core/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?room ?d  (avg(?result) as ?hourAvgTemp ) (?hourAvgTemp-"""+str(t)+""" as ?diff) ?time
+                                WHERE {
+                                ?room core:isLocationOf ?sensor .
+                                ?sensor ssn:detects ?observation .
+                                ?observation sosa:hasSimpleResult ?result ; sosa:resultTime ?datetime ; sosa:observedProperty ?prop .
+                                FILTER (
+                                (regex(str(?prop),"temperature")  &&
+                                (xsd:dateTime(?time) = '"""+d1+"""'^^xsd:dateTime)
+                                ))                  
+BIND( SUBSTR(str(?datetime), 1, 13) AS ?d )    
+BIND(CONCAT(STR( ?d ), ":00:00" ) AS ?time ) 
+
+}
+groupby ?d ?room ?time
+
+having (?hourAvgTemp > """+str(max) +"""  || ?hourAvgTemp < """+str(min) +""" )

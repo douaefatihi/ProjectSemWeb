@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Choose Hour in day {{day}}:</h2>
+<ul class="list-group list-group-flush" id="notes">
+
+
+
+
+
+
+  {% for d in rows %}
+    <li class="list-group-item">
+      <a href=classified{{ d.day[:13] }}>{{ d.day }}</a>
+      {{ d.day }} 
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

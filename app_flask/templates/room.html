@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Room {{room}} {% endblock %}</h1>
+    <h2>props:</h2>
+
+
+    <ul class="list-group list-group-flush" id="notes">
+
+
+        {% for d in rows %}
+          <li class="list-group-item">
+             
+            <a href={{ d.prop }}{{room}}>{{ d.prop }}</a> 
+
+          </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
